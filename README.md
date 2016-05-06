@@ -1,1 +1,1 @@
-# Bering
+# Bering, Brownian bridges
