@@ -1,8 +1,8 @@
 #######для Fly Elephant######
-install.packages("adehabitatLT")
-install.packages("adehabitatHR")
-require("adehabitatLT")
-require("adehabitatHR")
+install.packages('adehabitatHR', repos='http://cran.us.r-project.org', lib= "~/")
+install.packages('adehabitatHR', repos='http://cran.us.r-project.org', lib= "~/")
+require("adehabitatLT",lib.loc = "~/")
+require("adehabitatHR",lib.loc = "~/")
 
 all_6_from_rt_adj_2<-dget(file='~/workdir/all_6_from_rt_adj_2')
 ###загружаю траектории
