@@ -1,11 +1,11 @@
-#######для Fly Elephant######
+#######Г¤Г«Гї Fly Elephant######
 install.packages('adehabitatHR', repos='http://cran.us.r-project.org', lib= "~/")
 install.packages('adehabitatHR', repos='http://cran.us.r-project.org', lib= "~/")
-require("adehabitatLT",lib.loc = "~/")
-require("adehabitatHR",lib.loc = "~/")
+library("adehabitatLT",lib.loc = "~/")
+library("adehabitatHR",lib.loc = "~/")
 
 all_6_from_rt_adj_2<-dget(file='~/workdir/all_6_from_rt_adj_2')
-###загружаю траектории
+###Г§Г ГЈГ°ГіГ¦Г Гѕ ГІГ°Г ГҐГЄГІГ®Г°ГЁГЁ
 all.traj_adj<-as.ltraj(xy = all_6_from_rt_adj_2[,c("x.smooth","y.smooth")], 
                 date = all_6_from_rt_adj_2$date_time,id=as.character(all_6_from_rt_adj_2$id)) 
 
