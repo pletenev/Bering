@@ -1,6 +1,6 @@
 #######äëÿ Fly Elephant######
 install.packages('adehabitatHR', repos='http://cran.us.r-project.org', lib= "~/")
-install.packages('adehabitatHR', repos='http://cran.us.r-project.org', lib= "~/")
+install.packages('adehabitatLT', repos='http://cran.us.r-project.org', lib= "~/")
 library("adehabitatLT",lib.loc = "~/")
 library("adehabitatHR",lib.loc = "~/")
 
