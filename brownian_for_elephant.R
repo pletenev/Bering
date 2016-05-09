@@ -13,7 +13,7 @@ library("CircStats",lib.loc = "~/")
 library("deldir",lib.loc = "~/")
 library("adehabitatLT",lib.loc = "~/")
 library("adehabitatHR",lib.loc = "~/")
-
+print('start')
 all_6_from_rt_adj_2<-dget(file='~/workdir/all_6_from_rt_adj_2')
 ###çàãðóæàþ òðàåêòîðèè
 all.traj_adj<-as.ltraj(xy = all_6_from_rt_adj_2[,c("x.smooth","y.smooth")], 
@@ -22,8 +22,10 @@ all.traj_adj<-as.ltraj(xy = all_6_from_rt_adj_2[,c("x.smooth","y.smooth")],
 kernel_Brownian_list<-list()
 a<-as.numeric()
 for (i in seq(0.5,2.5,by=0.5)) {
-a=a+1
+a<-a+1
+print(a)
 kernel_Brownian_list[[a]]<-kernelbb(all.traj_adj, sig1=i, sig2=15, grid = 900, same4all = TRUE, 
   byburst = TRUE,extent = 0.1, nalpha = 25)
 }
+print('end')
 save(kernel_Brownian_list, file='~/workdir/kernel_Brownian_list')
