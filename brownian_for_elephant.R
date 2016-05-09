@@ -20,7 +20,7 @@ all.traj_adj<-as.ltraj(xy = all_6_from_rt_adj_2[,c("x.smooth","y.smooth")],
                 date = all_6_from_rt_adj_2$date_time,id=as.character(all_6_from_rt_adj_2$id)) 
 
 kernel_Brownian_list<-list()
-a<-as.numeric()
+a<-0
 for (i in seq(0.5,2.5,by=0.5)) {
 a<-a+1
 print(a)
