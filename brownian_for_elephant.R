@@ -15,11 +15,13 @@ library("adehabitatLT",lib.loc = "~/")
 library("adehabitatHR",lib.loc = "~/")
 print('start')
 data<-dget(file='~/workdir/data_after_cleaning')
+print('a1')
 data_res<-data[!data$far_trip&data$zero_delete!='delete',]
+print('a2')
 data.traj<-with(data_res, 
                 as.ltraj(xy = data.frame(x=Re(z_adj),y=Im(z_adj)), date = date_time,id=ID))
-
+print('a3')
 kernel_Brownian<-kernelbb(data.traj, sig1=0.5, sig2=15, grid = 900, same4all = TRUE, 
                           byburst = TRUE,extent = 0.1, nalpha = 25)
-
+print('a4')
 save(kernel_Brownian,file='~/workdir/kernel_Brownian')
