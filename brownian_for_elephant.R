@@ -14,18 +14,12 @@ library("deldir",lib.loc = "~/")
 library("adehabitatLT",lib.loc = "~/")
 library("adehabitatHR",lib.loc = "~/")
 print('start')
-all_6_from_rt_adj_2<-dget(file='~/workdir/all_6_from_rt_adj_2')
-###çàãðóæàþ òðàåêòîðèè
-all.traj_adj<-as.ltraj(xy = all_6_from_rt_adj_2[,c("x.smooth","y.smooth")], 
-                date = all_6_from_rt_adj_2$date_time,id=as.character(all_6_from_rt_adj_2$id)) 
+data<-dget(file='~/workdir/data_after_cleaning')
+data_res<-data[!data$far_trip&data$zero_delete!='delete',]
+data.traj<-with(data_res, 
+                as.ltraj(xy = data.frame(x=Re(z_adj),y=Im(z_adj)), date = date_time,id=ID))
 
-kernel_Brownian_list<-list()
-a<-0
-for (i in seq(0.5,2.5,by=0.5)) {
-a<-a+1
-print(a)
-kernel_Brownian_list[[a]]<-kernelbb(all.traj_adj, sig1=i, sig2=15, grid = 900, same4all = TRUE, 
-  byburst = TRUE,extent = 0.1, nalpha = 25)
-}
-print('end')
-save(kernel_Brownian_list, file='~/workdir/kernel_Brownian_list')
+kernel_Brownian<-kernelbb(data.traj, sig1=0.5, sig2=15, grid = 900, same4all = TRUE, 
+                          byburst = TRUE,extent = 0.1, nalpha = 25)
+
+save(kernel_Brownian,file='~/workdir/kernel_Brownian')
