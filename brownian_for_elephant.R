@@ -16,7 +16,7 @@ library("adehabitatHR",lib.loc = "~/")
 print('start')
 load(file='~/workdir/data_traj')
 print('a1')
-kernel_Brownian<-kernelbb(data.traj, sig1=0.8, sig2=3, grid = 900, same4all = TRUE, 
+kernel_Brownian<-kernelbb(data.traj, sig1=2.5, sig2=3, grid = 900, same4all = TRUE, 
                               byburst = TRUE,extent = 0.1, nalpha = 25)
 print('a2')
 save(kernel_Brownian,file='~/workdir/kernel_Brownian')
